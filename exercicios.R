@@ -98,3 +98,20 @@ install_github('ramnathv/rCharts', force = TRUE)
 
 library(rCharts)
 
+
+# Importação de Dados
+
+# 1 Importe o conjunto de dados:
+  
+# Quando você acessar o link abaixo, ele irá fazer o download de uma tabela 
+# no formato csv.
+
+# https://people.sc.fsu.edu/~jburkardt/data/csv/addresses.csv
+
+# Faça a leitura do arquivo csv baixado no item “a” 
+# usando o botão “import dataset”.
+
+# obs.: se atente para qual pasta o arquivo foi baixado
+# e qual a pasta está o seu projeto.
+
+
