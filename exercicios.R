@@ -91,6 +91,10 @@ install.packages("devtools")
 library(devtools)
 
 # 3 – Instale a biblioteca rCharts usando a função “install_github”.
-# Dica para a instalação: Consulte o repositório https://github.com/ramnathv/rCharts#installation
+# Dica para a instalação: Consulte o repositório 
+# https://github.com/ramnathv/rCharts#installation
 
+install_github('ramnathv/rCharts', force = TRUE)
+
+library(rCharts)
 
