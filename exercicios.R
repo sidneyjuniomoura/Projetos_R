@@ -1,4 +1,3 @@
-
 #Objetos
 
 # 1 - Crie 3 objetos de forma que cada um deles 
@@ -50,7 +49,6 @@ lista <- list(matrix_lista)
 vetor_texto3 <- c("sete", "oito", "nove")
 lista[[2]] <- vetor_texto3
 
-
 # Coerção de Classes
 
 # 1 – Execute o seguinte código no seu console:
@@ -64,7 +62,6 @@ class(profissao)
 # b) Transforme o objeto profissao para fator.
 
 profissao <- as.factor(profissao)
-
 
 # Data Frames
 
@@ -98,7 +95,6 @@ install_github('ramnathv/rCharts', force = TRUE)
 
 library(rCharts)
 
-
 # Importação de Dados
 
 # 1 Importe o conjunto de dados:
@@ -114,4 +110,4 @@ library(rCharts)
 # obs.: se atente para qual pasta o arquivo foi baixado
 # e qual a pasta está o seu projeto.
 
-
+# Realizados
