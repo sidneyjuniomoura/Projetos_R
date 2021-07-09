@@ -144,4 +144,70 @@ lista <- list(vetor_numerico = 1:10,
 
 lista[[3]][2,3]
 
+# Manipulação de Data Frames com a biblioteca Dplyr
 
+# 1 – Desenvolva os itens a seguir:
+  
+# a. Carregue a biblioteca dplyr
+
+install.packages("dplyr")
+
+library(dplyr)
+
+# b. Selecione as colunas “Day” e “Ozone” do conjunto de dados airquality usando a função select.
+
+names(airquality)
+
+select(airquality,Day,Ozone)
+
+# c. Filtre as observações da segunda quinzena de cada mês usando a função filter (para o mesmo conjunto de dados airquality).
+
+filter(airquality, Day==15)
+
+# d. Repita os dois itens acima, porém agora usando o operador %>% (pipe).
+
+airquality %>%
+  select(Day,Ozone) 
+
+airquality %>% 
+  filter(Day==15)
+
+# e. Para o conjunto de dados airquality completo, calcule a média da variável “Wind” para cada mês. Use as funções group_by e summarise.
+
+airquality %>%
+  group_by(Month) %>%
+  summarise(Media = mean (Wind))
+
+# f. Para o conjunto de dados airquality completo, calcule a média da variável “Solar.R” para cada mês. Use as funções group_by e summarise.
+# Dica: Nesse caso você precisará definir na função mean que deseja ignorar valores faltantes da variável “Solar.R”.
+
+airquality %>%
+  group_by(Month) %>%
+  summarise(Media = mean(Solar.R, na.rm = TRUE))
+
+# g. Crie uma nova coluna usando a função mutate com o valor da variável “Wind” dividida pela variável “Temp”.
+
+airquality %>%
+  mutate(Wind_Temp = Wind/Temp)
+
+# h. Ordene o conjunto de dados airquality começando pelas maiores temperaturas (variável “Temp”) e, caso haja empate entre as temperaturas, ordene em ordem crescente pela variável “Solar.R”. Para isso, use a função arrange.
+
+airquality %>%
+  arrange(-Temp, Solar.R)
+
+# i. Renomeie a variável “Temp” (usando a função rename) para “temperatura” no conjunto de dados airqulity.
+
+airquality %>%
+  rename(Temperatura = Temp)
+
+# 2 – Execute o seguinte código:
+  
+  preco_iris<- data.frame(Species=c("setosa","virginica","versicolor"),preco=c(5,10,15))
+
+# Junte a tabela preco_iris com a tabela nativa do R iris usando a variável “Species” como chave.
+
+  install.packages("plyr")
+  library(plyr)
+  
+  join(iris, preco_iris, by="Species")
+  
