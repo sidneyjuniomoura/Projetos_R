@@ -211,3 +211,29 @@ airquality %>%
   
   join(iris, preco_iris, by="Species")
   
+#  Manipulação de Data e Hora
+  
+#  1 – Execute o código:
+  
+  Data1<-"05-03-2021 14:43:12"
+  
+  Data2<-"10 Janeiro 2021"
+  
+#  a. Verifique a classe dos objetos Data1 e Data2
+  
+  class(Data1)
+  class(Data2)
+  
+#  b. Transforme os objetos Data1 e Data2 para o formato de data padrão do R usando a função strptime. Atribua os resultados para os objetos Data1t e Data2t.
+  
+Data1t <- strptime(Data1, format = "%d-%m-%Y %H:%M:%S")
+Data2t <- strptime(Data2, format = "%d %B %Y")
+
+#  c. Extraia apenas a data do objeto Data1t (sem as horas).
+
+format(Data1t,"%d-%m-%Y")
+
+#  d. Extraia apenas o ano do objeto Data2t.
+
+format(Data2t,"%Y")
+  
