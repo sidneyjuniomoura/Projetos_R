@@ -236,4 +236,31 @@ format(Data1t,"%d-%m-%Y")
 #  d. Extraia apenas o ano do objeto Data2t.
 
 format(Data2t,"%Y")
+
+# Estruturas de Controle
+
+# 1 – Execute o seguinte código:
   
+Vetor1<-1:50
+Vetor2<-c()
+
+# Usando a função for, atribua para cada elemento “n” do vetor2 a soma acumulada no Vetor1 de primeiro elemento até o seu elemento n.
+
+Vetor2[1] <- Vetor1[1]
+
+for (n in 2:50){
+Vetor2[n] <- Vetor1[n] + Vetor2[n-1]
+}
+
+Vetor2
+
+# 2 – Faça um looping usando a função while que gere um valor aleatório seguindo a distribuição uniforme com limites 0 e 1 e imprima o valor gerado no console. O looping deve ser executado até um valor maior que 0.95 ser gerado.
+
+
+
+# 3 - Crie um looping usando a função for e 10 ciclos. Ex: for( i in 1:10). Dentro desse looping, gere um valor aleatório seguindo uma distribuição normal padrão (média 0 e desvio padrão 1). Se o valor for maior que 0, imprima o texto “positivo”. Caso contrário, imprima “negativo”.
+
+
+
+# 4 – Usando o conjunto de dados “airquality” e a função “ifelse”, crie uma nova coluna no conjunto de dados com os valores “ventao”, caso o valor de “Wind” seja maior (>) que 10 ou “ventinho”, caso o valor de “Wind” seja menor ou igual (<=) a 10.
+
