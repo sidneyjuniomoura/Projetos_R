@@ -256,11 +256,104 @@ Vetor2
 
 # 2 – Faça um looping usando a função while que gere um valor aleatório seguindo a distribuição uniforme com limites 0 e 1 e imprima o valor gerado no console. O looping deve ser executado até um valor maior que 0.95 ser gerado.
 
-
+valor <- 0
+while (valor <= 0.95){
+  valor <- runif(n=1, min=0, max=1)
+  print (valor)
+}
 
 # 3 - Crie um looping usando a função for e 10 ciclos. Ex: for( i in 1:10). Dentro desse looping, gere um valor aleatório seguindo uma distribuição normal padrão (média 0 e desvio padrão 1). Se o valor for maior que 0, imprima o texto “positivo”. Caso contrário, imprima “negativo”.
 
-
+for (ciclo in 1:10){
+  teste <- rnorm(1, mean=0, sd=1)>0
+  if(teste == TRUE){
+    print ("positivo")}
+    else{
+      print("negativo")
+    }
+  }
 
 # 4 – Usando o conjunto de dados “airquality” e a função “ifelse”, crie uma nova coluna no conjunto de dados com os valores “ventao”, caso o valor de “Wind” seja maior (>) que 10 ou “ventinho”, caso o valor de “Wind” seja menor ou igual (<=) a 10.
+
+airquality$vento <- ifelse(airquality$Wind > 10, "vento", "ventinho")
+head(airquality)
+
+# Análise Exploratória
+
+# 1 – Faça uma análise exploratória com o conjunto de dados iris:
+  
+# Imprima o cabeçalho e o rodapé do conjunto de dados.
+
+head(iris)
+tail(iris)
+
+# Verifique a estrutura dos seus dados. Descubra quais as classes de cada variável e as dimensões de seu conjunto de dados.
+# Dica: faça isso usando apenas uma função.
+
+str(iris)
+
+# Usando apenas uma função, calcule estatísticas descritivas (média, mediana e quartis) das variáveis numéricas e a frequência das observações para a variável categórica.
+
+summary(iris)
+
+# Calcule a frequência da variável “Species” usando a função table e usando a função count da biblioteca dplyr.
+
+table(iris$Species)
+
+library(dplyr)
+iris %>%
+count (Species)
+
+# Faça um boxplot da variável “Petal.Length” e interprete o seu boxplot. Onde há concentração de dados?
+
+boxplot(iris$Petal.Length)
+  
+# For vs lapply
+
+# 1 - Execute o código abaixo:
+  
+lista_exercicio<-list() # Cria uma lista vazia e atribui para o objeto lista_exercicio
+for(elemento in 1:1000000){ #looping com 1 milhão de repetições
+  lista_exercicio[[elemento]]<-rnorm(runif(1,min = 1,max=20))
+  #para cada elemento da lista é gerado um vetor com distribuição normal (rnorm) e comprimento variando entre 1 e 20, definido pela distribuição uniforme (runif).
+}
+
+# Usando a função for, calcule o comprimento de cada elemento da lista lista_exercicio e atribua o resultado para o objeto lista_comprimento_for.
+  
+  lista_comprimento_for<-c()
+  for(ciclo in 1:1000000){
+    lista_comprimento_for[ciclo]<- length(lista_exercicio[[ciclo]])
+  }
+  
+  head(lista_comprimento_for)
+
+# Usando a função lapply, calcule o comprimento de cada elemento da lista lista_exercicio e atribua o resultado para o objeto lista_comprimento_lapply.
+  
+ lista_comprimento_lapply <- unlist(lapply(lista_exercicio, length))
+ head(lista_comprimento_lapply)
+
+# Repita os dois itens acima calculando o tempo de execução para cada um deles. Para calcular o tempo que cada script demorou para ser executado, use a função Sys.time().
+ 
+ inicio <- Sys.time()
+ lista_comprimento_for<-c()
+ for(ciclo in 1:1000000){
+   lista_comprimento_for[ciclo]<- length(lista_exercicio[[ciclo]])
+ }
+ Sys.time() - inicio
+ 
+ inicio <- Sys.time()
+ lista_comprimento_lapply <- unlist(lapply(lista_exercicio, length))
+ Sys.time() - inicio
+ 
+# Criando uma função na linguagem R
+
+# 1 - Crie uma função chamada media_coluna. A função deverá receber um data.frame com colunas numéricas e calcular as médias para cada coluna. O resultado da função deve ser um vetor com comprimento igual ao número de colunas do data frame.
+
+# Obs: é possível usar a função for ou apply para resolver o exercício.
+
+# Desafio: Adicione na função acima os itens abaixo:
+  
+# uma mensagem caso o input (argumento de entrada) da função não seja um data frame.
+
+# Caso o data frame tenha uma variável que não é numérica, coloque o valor NA como resultado da média para a coluna.
 
